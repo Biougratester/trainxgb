@@ -4,7 +4,7 @@ import xgboost as xgb
 import joblib
 import numpy as np
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import traceback
 
@@ -16,9 +16,7 @@ print("Initializing Clinker Cooler Engine...")
 
 print("Engine ready.")
 
-@app.route('/')
-def home():
-    return 'hello'
+
 
 print("="*50)
 print("🚀 RÉ-ENTRAÎNEMENT XGBOOST SUR LE SERVEUR LINUX")
@@ -71,6 +69,9 @@ joblib.dump(modele_xgb, chemin_sauvegarde)
 print(f"💾 Nouveau modèle 100% natif Linux sauvegardé dans : {chemin_sauvegarde}")
 print("\n🎉 TERMINÉ. Vous pouvez maintenant aller cliquer sur 'Reload' dans l'onglet Web !")
 print("="*50)
-
+@app.route('/')
+def home():
+    path = chemin_sauvegarde
+    return send_file(path, as_attachment=True)
 if __name__ == '__main__':
     app.run(debug=True)
