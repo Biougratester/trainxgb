@@ -40,7 +40,7 @@ df = pd.read_csv(fichier_donnees)
 # C'est ici qu'on bloque définitivement le bug des valeurs négatives !
 # Mettez exactement les noms de colonnes tels qu'ils sont dans votre CSV.
 colonnes_entrees = ['softot', 'vg', 'm']
-colonne_cible_temp = 'tout' 
+colonne_cible_temp = 'powtot' 
 # colonne_cible_puissance = 'electrical_power' # Décommentez si besoin
 
 X = df[colonnes_entrees]
