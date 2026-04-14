@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import xgboost as xgb
 import joblib
+import numpy as np
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
